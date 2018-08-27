@@ -78,5 +78,6 @@
     <color name="textHint">#88888888</color>
     <color name="iconCover">#cc979797</color>
     <color name="iconCoverDark">#cc393939</color>
+    <color name="picture_list_sina_text_color">#00BFFF</color>
 
 </resources>
