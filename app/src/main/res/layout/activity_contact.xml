@@ -114,23 +114,24 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionBar_video"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_margin="80dp"
-        android:src="@drawable/ic_message_pressed"
-        app:layout_anchorGravity="bottom|start"
-        app:layout_anchor="@id/appBar"/>
-
-    <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionBar_chat"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
         android:layout_margin="80dp"
-        android:src="@drawable/ic_video"
+        android:src="@drawable/ic_message_pressed"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionBar_video"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_margin="80dp"
+        android:src="@drawable/ic_video"
+        app:layout_anchorGravity="bottom|start"
+        app:layout_anchor="@id/appBar"/>
+
+
 
 </android.support.design.widget.CoordinatorLayout>
 

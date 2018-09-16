@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lab.android.nuc.chat.Fragment.CommunityFragment;
-import com.example.lab.android.nuc.chat.Fragment.HomeFragment;
 import com.example.lab.android.nuc.chat.Fragment.MessageFragment;
 import com.example.lab.android.nuc.chat.Fragment.QuestionFragment;
 import com.example.lab.android.nuc.chat.R;
@@ -43,7 +42,7 @@ public class PageAdapter extends FragmentPagerAdapter {
             //返回一个Fragment
             return MessageFragment.newInstance();
         else if (position == 1)
-//            return HomeFragment.newInstance(position + 1);
+//            return ContactFragment.newInstance(position + 1);
             return CommunityFragment.newInstance( position + 1 );
         else if (position == 2)
             return QuestionFragment.newInstance();

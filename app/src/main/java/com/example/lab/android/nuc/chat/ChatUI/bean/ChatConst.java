@@ -18,4 +18,6 @@ public class ChatConst {
     @Retention(RetentionPolicy.SOURCE)
     public @interface SendState {
     }
+
+    public static String RESPONSE_HEAD_IMAGE = "response_head_image";
 }

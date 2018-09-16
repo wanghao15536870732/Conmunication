@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.chat.R;
 import com.example.lab.android.nuc.chat.ChatUI.bean.ChatConst;
 import com.example.lab.android.nuc.chat.ChatUI.bean.ChatMessageBean;
@@ -66,7 +67,7 @@ public class ChatItemHolder extends CommonViewHolder {
         String userId = message.getUserId();
         nameView.setText(message.getUserName());
         if (isLeft) {
-            avatarView.setImageResource(R.mipmap.ic_head_01);
+            Glide.with( getContext() ).load( ChatConst.RESPONSE_HEAD_IMAGE ).into( avatarView );
         } else {
             avatarView.setImageResource(R.drawable.icon);
         }

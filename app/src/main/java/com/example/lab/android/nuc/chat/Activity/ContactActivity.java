@@ -36,6 +36,9 @@ public class ContactActivity extends AppCompatActivity {
     public static final String CONTACT_NAME = "contact_name";
 
     public static final String CONTACT_IAMGE_ID = "contact_image_id";
+    private TextView contact_name,native_language,learn_language;
+    private String interest_text,toPerson_text,toGoal_text,imageUri;
+    private TextView interest,toPerson,toGoal;
 
 
     private String learnLanguage;
@@ -43,14 +46,6 @@ public class ContactActivity extends AppCompatActivity {
     private String languageLevel;
     private static String userID = "1";
     private Button Atbutton;
-    private TextView contact_name;
-    private TextView learn_language;
-    private String interest_text;
-    private String toPerson_text;
-    private String toGoal_text;
-    private TextView interest;
-    private TextView toPerson;
-    private TextView toGoal;
 
     private UserBaseInfo info;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -67,9 +62,11 @@ public class ContactActivity extends AppCompatActivity {
         learnLanguage = intent.getStringExtra( "learnLanguage" );
         nativeLanguage = intent.getStringExtra( "nativeLanguage" );
         languageLevel = intent.getStringExtra( "languageLevel" );
+        imageUri = intent.getStringExtra( "ImageUri" );
         contact_name.setText( contactName );
+        if(native_language != null)
+            native_language.setText( nativeLanguage );
         learn_language.setText( learnLanguage );
-
         requestcontact();
 
 
@@ -100,10 +97,11 @@ public class ContactActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled( true );
         }
+        //将文字加载到图片上
         collapsingToolbar.setTitle( contactName );
 
-        //将文字加载到图片上
-        Glide.with( this ).load( contactNameId ).into( contactImageView );
+
+        Glide.with( this ).load( imageUri ).into( contactImageView );
 
         FloatingActionButton floatingActionButton_chat = (FloatingActionButton) findViewById( R.id.floatingActionBar_chat );
         floatingActionButton_chat.setOnClickListener( new View.OnClickListener() {
@@ -111,6 +109,7 @@ public class ContactActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent( ContactActivity.this, ServiceChatActivity.class );
                 intent.putExtra(ServiceChatActivity.CONTACT_NAME, contactName);
+                intent.putExtra( "contact_image_uri",imageUri );
                 startActivity( intent );
             }
         } );

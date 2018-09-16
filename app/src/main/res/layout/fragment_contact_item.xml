@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="70dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -19,9 +19,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/contact_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_centerInParent="true"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:src="@drawable/icon"
@@ -70,7 +71,7 @@
                             android:gravity="center"
                             android:text="白玉京"
                             android:textColor="#000000"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView

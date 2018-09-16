@@ -25,12 +25,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.chat.Activity.ContactActivity;
 import com.example.lab.android.nuc.chat.Adapter.SearchAdapter_contact;
 import com.example.lab.android.nuc.chat.Base.Contacts.Contact;
 import com.example.lab.android.nuc.chat.Base.Contacts.UserInfo;
 import com.example.lab.android.nuc.chat.R;
-import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -42,7 +42,7 @@ import java.util.Random;
 
 import static com.lzy.okgo.utils.HttpUtils.runOnUiThread;
 
-public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClickListener,SearchView.OnQueryTextListener{
+public class ContactFragment extends Fragment implements SwipeRefreshLayout.OnClickListener,SearchView.OnQueryTextListener{
     private static String UserID = "11";
     private Context mContext;
     private static final String PAGE = "page";
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
     public static Fragment newInstance(int page){
         Bundle bundle = new Bundle();
         bundle.putInt(PAGE,page);
-        HomeFragment homeFragment = new HomeFragment();
+        ContactFragment homeFragment = new ContactFragment();
         //用于防止因旋转而造成的Fragment重建
         homeFragment.setArguments(bundle);
         //返回一个Fragment
@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment,container,false);
+        View view = inflater.inflate(R.layout.fragment_contact,container,false);
         countryButton = (Button) view.findViewById( R.id.country_selector );
         mRecyclerView = (RecyclerView) view.findViewById(R.id.contact_recycler_view_message);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -173,7 +173,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
                 mContext = parent.getContext();
             }
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.contacts_list,parent,false);
+                    .inflate(R.layout.fragment_contact_item,parent,false);
             final ContactsHolder holder = new ContactsHolder(view);
 
             holder.contactView.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +186,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
                     intent.putExtra(ContactActivity.CONTACT_NAME,contact.getName());
                     intent.putExtra(ContactActivity.CONTACT_IAMGE_ID,contact.getImagrId());
                     intent.putExtra( ContactActivity.USERID,UserID );
+                    intent.putExtra( "ImageUri",contact.getImageUri() );
                     intent.putExtra( "nativeLanguage",contact.getMother_language() );
                     intent.putExtra( "learnLanguage",contact.getLearn_language() );
                     intent.putExtra(  "languageLevel",contact.getLanguage_level());
@@ -204,7 +205,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
         @Override
         public void onBindViewHolder(@NonNull ContactsHolder holder, int position) {
             Contact contact = mContacts.get(position);
-            holder.mImageView.setImageResource(contact.getImagrId());
+            Glide.with(getContext()).load(contact.getImageUri()).into(holder.mImageView);
+//            holder.mImageView.setImageResource(contact.getImagrId());
             holder.mTextView.setText(contact.getName());
             holder.onffline.setImageResource(contact.getLine() );
             holder.language_level.setText( contact.getLanguage_level() );
@@ -226,22 +228,26 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
 
     }
     private Contact[] mContacts= {
-            new Contact("apple",R.drawable.apple_pic,R.drawable.ic_dot_24dp,
+            new Contact("Abbott","http://p8nssbtwi.bkt.clouddn.com/student_2.jpg",R.drawable.ic_dot_24dp,
                     "汉语","英语","初级水平"),
-            new Contact("orange",R.drawable.orange_pic,R.drawable.ic_off_dot_24dp,
-                    "汉语","","中级水平"),
-            new Contact("banana",R.drawable.orange_pic,R.drawable.ic_off_dot_24dp,
+            new Contact("李沙","http://p8nssbtwi.bkt.clouddn.com/teacher_1.jpg",R.drawable.ic_off_dot_24dp,
+                    "法语","汉语","中级水平"),
+            new Contact("Abraham","http://p8nssbtwi.bkt.clouddn.com/student_3.jpg",R.drawable.ic_off_dot_24dp,
                     "韩语","汉语","高级水平"),
-            new Contact("grape",R.drawable.grape_pic,R.drawable.ic_dot_24dp,
+            new Contact("Baron","http://p8nssbtwi.bkt.clouddn.com/teacher_2.jpg",R.drawable.ic_dot_24dp,
                     "日语","俄语","初级水平"),
-            new Contact("mango",R.drawable.mango_pic,R.drawable.ic_off_dot_24dp,
+            new Contact("Bruno","http://p8nssbtwi.bkt.clouddn.com/teacher_3.jpg",R.drawable.ic_off_dot_24dp,
                     "阿拉伯语","英语","中级水平"),
-            new Contact("pineapple",R.drawable.pineapple_pic,R.drawable.ic_dot_24dp,
+            new Contact("Borg","http://p8nssbtwi.bkt.clouddn.com/teacher_4.jpg",R.drawable.ic_dot_24dp,
                     "俄语","汉语","高级水平"),
-            new Contact("strawberry",R.drawable.strawberry_pic,R.drawable.ic_dot_24dp,
+            new Contact("Christopher","http://p8nssbtwi.bkt.clouddn.com/teacher_5.jpg",R.drawable.ic_dot_24dp,
                     "汉语","日语","初级水平"),
-            new Contact("watermelon",R.drawable.watermelon_pic,R.drawable.ic_off_dot_24dp,
-                    "汉语","韩语","中级水平")
+            new Contact("Derrick","http://p8nssbtwi.bkt.clouddn.com/teacher_6.jpg",R.drawable.ic_off_dot_24dp,
+                    "阿拉伯语","汉语","高级水平"),
+            new Contact("Winifre","http://p8nssbtwi.bkt.clouddn.com/teacher_7.jpg",R.drawable.ic_dot_24dp,
+                    "汉语","俄语","低级水平"),
+            new Contact("Brandon","http://p8nssbtwi.bkt.clouddn.com/teacher_8.jpg",R.drawable.ic_dot_24dp,
+                    "泰语","汉语","中级水平")
     };
     private void refreshContacts(){
         new Thread(new Runnable() {
@@ -257,7 +263,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnClick
                     @Override
                     public void run() {
                         contactList.clear();
-                        Contact contact = new Contact( name,R.drawable.icon,R.drawable.ic_dot_24dp,
+                        Contact contact = new Contact( name,"http://p8nssbtwi.bkt.clouddn.com/ic_s12.jpeg",R.drawable.ic_dot_24dp,
                                 studyLanguage,nativeLanguage,languageLevel);
                         contactList.add( 0,contact );
                         mAdapter.notifyItemInserted( 0 );

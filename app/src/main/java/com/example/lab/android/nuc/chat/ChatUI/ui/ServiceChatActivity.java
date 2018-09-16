@@ -76,7 +76,7 @@ public class ServiceChatActivity extends AppCompatActivity {
     private InputBarLayout inputbarLayout;
     private RecyclerView rvChat;
     private LinearLayoutManager layoutManager;
-
+    private  String contactname;
     public List<ChatMessageBean> messageList = new ArrayList<>();
     private ChatRecyclerAdapter chatRecyclerAdapter;
 
@@ -132,6 +132,7 @@ public class ServiceChatActivity extends AppCompatActivity {
         contact_name = (TextView) findViewById( R.id.contact_name );
         Intent intent = getIntent();
         String contactname = intent.getStringExtra( CONTACT_NAME );
+        ChatConst.RESPONSE_HEAD_IMAGE = intent.getStringExtra( "contact_image_uri" );
         contact_name.setText( contactname );
         contact_back.setOnClickListener( new View.OnClickListener() {
             @Override
