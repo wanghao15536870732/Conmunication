@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.chat.Adapter;
+package com.example.lab.android.nuc.chat.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lab.android.nuc.chat.Base.Contacts.Contact;
+import com.example.lab.android.nuc.chat.base.Contacts.Contact;
 import com.example.lab.android.nuc.chat.R;
 
 import java.util.ArrayList;

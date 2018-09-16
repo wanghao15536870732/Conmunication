@@ -5,7 +5,7 @@
     tools:ignore="ExtraText">
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.lab.android.nuc.chat.Activity.MainActivity_11"
+    tools:context="com.example.lab.android.nuc.chat.Activity.MainActivity"
 
 
     <item

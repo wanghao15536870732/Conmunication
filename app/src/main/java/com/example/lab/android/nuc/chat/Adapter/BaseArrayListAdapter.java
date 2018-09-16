@@ -1,4 +1,4 @@
-package com.example.lab.android.nuc.chat.Adapter;
+package com.example.lab.android.nuc.chat.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.example.lab.android.nuc.chat.Base.others.FaceText;
+import com.example.lab.android.nuc.chat.base.comment.FaceText;
 
 import java.util.ArrayList;
 import java.util.Arrays;

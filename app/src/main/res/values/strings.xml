@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="agora_app_id">892995891e7947a89dda080cf1759818</string>
     <string name="app_name">聊天</string>
     <string name="action_settings">Settings</string>
     <string name="content">内容</string>
@@ -151,5 +152,6 @@
     <string name="str_recorder_recording">松开结束</string>
     <string name="str_recorder_want_cancel">松开手指，取消发送</string>
     <string name="chat_location">位置</string>
-
+    <string name="text_detail">翻着我们的照片，想念若隐若现，去年的冬天，我们笑得很甜...... —— 哎哟，不错哦!</string>
+    <string name="ai_te">\u0040</string>
 </resources>

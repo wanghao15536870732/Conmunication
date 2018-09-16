@@ -1,9 +1,8 @@
-package com.example.lab.android.nuc.chat.Adapter;
+package com.example.lab.android.nuc.chat.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.lab.android.nuc.chat.Base.Search.SearchTag;
-import com.example.lab.android.nuc.chat.Fragment.MessageFragment;
+import com.example.lab.android.nuc.chat.base.Search.SearchTag;
+import com.example.lab.android.nuc.chat.view.fragment.MessageFragment;
 import com.example.lab.android.nuc.chat.R;
-import com.example.lab.android.nuc.chat.ChatUI.ui.ServiceChatActivity;
+import com.example.lab.android.nuc.chat.chatUI.activity.ServiceChatActivity;
 
 import java.util.ArrayList;
 
