@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.lab.android.nuc.chat.base.Search.SearchTag;
 import com.example.lab.android.nuc.chat.view.fragment.MessageFragment;
 import com.example.lab.android.nuc.chat.R;
-import com.example.lab.android.nuc.chat.chatUI.activity.ServiceChatActivity;
+import com.example.lab.android.nuc.chat.communication.activity.ChatActivity;
 
 import java.util.ArrayList;
 
@@ -45,8 +45,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             public void onClick(View v) {
                 int position = imageViewHolder.getAdapterPosition();
                 SearchTag searchTag = mArrayList.get(position);
-                Intent intent = new Intent(mContext, ServiceChatActivity.class);
-                intent.putExtra(ServiceChatActivity.CONTACT_NAME, searchTag.title);
+                Intent intent = new Intent(mContext, ChatActivity.class);
+                intent.putExtra( ChatActivity.CONTACT_NAME, searchTag.title);
                 intent.putExtra( "contact_image_uri",searchTag.imageUri );
                 mContext.startActivity(intent);
             }
@@ -62,8 +62,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 SearchTag searchTag = mArrayList.get(position);
-                Intent intent = new Intent(mContext, ServiceChatActivity.class);
-                intent.putExtra(ServiceChatActivity.CONTACT_NAME, searchTag.title);
+                Intent intent = new Intent(mContext, ChatActivity.class);
+                intent.putExtra( ChatActivity.CONTACT_NAME, searchTag.title);
                 intent.putExtra( "contact_image_uri",searchTag.imageUri );
                 mContext.startActivity(intent);
             }

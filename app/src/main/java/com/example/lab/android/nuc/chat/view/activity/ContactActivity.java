@@ -19,10 +19,11 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
+import com.example.lab.android.nuc.chat.base.Contacts.Contact;
 import com.example.lab.android.nuc.chat.base.user.UserBaseInfo;
 import com.example.lab.android.nuc.chat.R;
+import com.example.lab.android.nuc.chat.communication.activity.ChatActivity;
 import com.example.lab.android.nuc.chat.tools.views.RoundImageView;
-import com.example.lab.android.nuc.chat.chatUI.activity.ServiceChatActivity;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -105,8 +106,8 @@ public class ContactActivity extends AppCompatActivity {
         floatingActionButton_chat.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( ContactActivity.this, ServiceChatActivity.class );
-                intent.putExtra(ServiceChatActivity.CONTACT_NAME, contactName);
+                Intent intent = new Intent( ContactActivity.this, ChatActivity.class );
+                intent.putExtra( ChatActivity.CONTACT_NAME, contactName);
                 intent.putExtra( "contact_image_uri",imageUri );
                 startActivity( intent );
             }
@@ -116,6 +117,8 @@ public class ContactActivity extends AppCompatActivity {
         floatingActionButton_video.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent1 = new Intent( ContactActivity.this,VideoChatActivity.class );
+                startActivity( intent1 );
             }
         } );
 

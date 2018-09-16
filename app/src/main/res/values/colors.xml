@@ -87,5 +87,6 @@
     <color name="orange">#FFA500</color><!--橙色 -->
     <color name="base_yellow">#f9b516</color>
     <color name="color_f6">#f6f6f6</color>
+    <color name="actionsheet_blue">#037BFF</color>
 
 </resources>

@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bx.waveview.WaveView;
 import com.example.lab.android.nuc.chat.R;
-import com.example.lab.android.nuc.chat.chatUI.bean.ChatConst;
+import com.example.lab.android.nuc.chat.communication.bean.ChatConst;
 
 import java.util.Locale;
 

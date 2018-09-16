@@ -6,8 +6,8 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.lab.android.nuc.chat.chatUI.activity.ImageBrowserActivity;
-import com.example.lab.android.nuc.chat.chatUI.utils.Constants;
+import com.example.lab.android.nuc.chat.communication.activity.ImageDisplayActivity;
+import com.example.lab.android.nuc.chat.communication.utils.Constants;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
@@ -75,7 +75,7 @@ public class NineGridTestLayout extends NineGridLayout {
     @Override
     protected void onClickImage(int i, String url, List<String> urlList) {
 //        Toast.makeText(mContext, "点击了图片" + url, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getContext(), ImageBrowserActivity.class);
+        Intent intent = new Intent(getContext(), ImageDisplayActivity.class);
 //        intent.putExtra( Constants.IMAGE_LOCAL_PATH,);
         intent.putExtra( Constants.IMAGE_URL, url);
         getContext().startActivity(intent);

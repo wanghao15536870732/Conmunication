@@ -67,23 +67,23 @@ public class ArticleActivity extends AppCompatActivity {
 
     private void loadDate() {
         People people = new People();
-        people.setName("饮食             --     学做西红柿炒鸡蛋");
+        people.setName("饮食  --   学做西红柿炒鸡蛋");
         People people1 = new People();
-        people1.setName("交通            --     坐公共汽车的N个理由");
+        people1.setName("交通  --    坐公共汽车的N个理由");
         People people2 = new People();
-        people2.setName("运动与健康      --     生命在于运动");
+        people2.setName("运动与健康  --  生命在于运动");
         People people3 = new People();
-        people3.setName("运动与健康      --     生命在于运动");
+        people3.setName("运动与健康  --   生命在于运动");
         People people4 = new People();
-        people4.setName("健康长寿的秘诀   --     生命在于运动");
+        people4.setName("健康长寿的秘诀  --   生命在于运动");
         People people5 = new People();
-        people5.setName("校园生活        --       聊聊老师和选课");
+        people5.setName("校园生活    --   聊聊老师和选课");
         People people6 = new People();
-        people6.setName("竞选演讲        --      老师和学生的区别");
+        people6.setName("竞选演讲   --   老师和学生的区别");
         People people7 = new People();
-        people7.setName("入乡随俗        --      入乡不随俗会有麻烦");
+        people7.setName("入乡随俗  --   入乡不随俗会有麻烦");
         People people8 = new People();
-        people8.setName("上网            --      网络带来的问题");
+        people8.setName("上网   --   网络带来的问题");
 
 
         List<People> tempList = new ArrayList<>();

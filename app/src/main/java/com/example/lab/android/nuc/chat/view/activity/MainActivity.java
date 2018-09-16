@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -26,6 +27,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
 import com.example.lab.android.nuc.chat.adapter.PageAdapter;
 import com.example.lab.android.nuc.chat.tools.views.RoundImageView;
 import com.example.lab.android.nuc.chat.view.fragment.DynamicsFragment;
@@ -36,30 +41,22 @@ import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener,IOnSearchClickListener,View.OnClickListener{
 
-
-
+    private AlertDialog.Builder alertDialog;
+    //aip.lecence初始话
+    private boolean hasGotToken = false;
     public static Context mContext;
-    Toolbar mToolbar;
-    TabLayout mTabLayout;
-
-    ViewPager mViewPager;
-
+    private Toolbar mToolbar;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
     private SearchFragment searchFragment;
-
-    RoundImageView icon;
 
     //拍照的Uri
     private Uri imageUri;
     //定义滑动菜单的实例
     private DrawerLayout mDrawerLayout;
-
     private static final int TAKE_PHOTO = 1;
-
     private FloatingActionButton addQuestionBtn;
-
-
     private RelativeLayout rootView;
-
     @SuppressLint("WrongViewCast")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -82,11 +79,11 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             //默认的是返回键，更改为菜单键
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
-
         mToolbar.setOnMenuItemClickListener(this);
         searchFragment.setOnSearchClickListener(this);
-
-
+        alertDialog = new AlertDialog.Builder(this);
+        //文字提取初始化
+        initAccessToken();
     }
 
     @Override
@@ -140,14 +137,6 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-//        mToolbar.setTitle("TabLayout Demo");
-    }
-
-
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //加载菜单文件
         getMenuInflater().inflate(R.menu.menu_main,menu);
@@ -179,15 +168,12 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         return super.onOptionsItemSelected(item);
     }
 
-
-
     @Override
     public void onClick(View v) {
         switch(v.getId()){
 
         }
     }
-
 
     private FragmentManager mFragmentManager;
     @Override
@@ -214,6 +200,35 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             default:
         }
     }
+    /**
+     * 以license文件方式初始化
+     */
+    private void initAccessToken() {
+        OCR.getInstance(this).initAccessToken( new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken accessToken) {
+                String token = accessToken.getAccessToken();
+                hasGotToken = true;
+            }
 
+            @Override
+            public void onError(OCRError error) {
+                error.printStackTrace();
+                alertText("licence方式获取token失败", error.getMessage());
+            }
+        }, getApplicationContext());
+    }
+
+    private void alertText(final String title, final String message) {
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                alertDialog.setTitle(title)
+                        .setMessage(message)
+                        .setPositiveButton("确定", null)
+                        .show();
+            }
+        });
+    }
 
 }

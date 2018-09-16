@@ -24,7 +24,7 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.example.lab.android.nuc.chat.R;
-import com.example.lab.android.nuc.chat.chatUI.activity.ServiceChatActivity;
+import com.example.lab.android.nuc.chat.communication.activity.ChatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -224,7 +224,7 @@ public class LocationActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent();
-        intent.putExtra( ServiceChatActivity.CHAT_LOCATION,currentPosition.toString() );
+        intent.putExtra( ChatActivity.CHAT_LOCATION,currentPosition.toString() );
         setResult( RESULT_OK,intent );
         super.onBackPressed();
         finish();

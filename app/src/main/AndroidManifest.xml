@@ -75,7 +75,7 @@
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -138,9 +138,9 @@
         <activity android:name=".photoSelector.PhotoPreviewActivity" />
         <activity android:name=".view.activity.PrePhototActivity" />
         <activity
-            android:name=".chatUI.activity.ServiceChatActivity"
+            android:name=".communication.activity.ChatActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity android:name=".chatUI.activity.ImageBrowserActivity" />
+        <activity android:name=".communication.activity.ImageDisplayActivity" />
 
         <service
             android:name="com.baidu.location.f"
@@ -160,7 +160,9 @@
         <activity android:name=".view.activity.ArticleActivity" />
         <activity android:name=".view.activity.TopicActivity" />
         <activity android:name=".view.activity.VideoChatActivity" />
-        <activity android:name=".view.activity.VoiceChatActivity"></activity>
+        <activity android:name=".view.activity.VoiceChatActivity" />
+        <activity android:name=".communication.activity.PictureTextActivity"
+            android:theme="@style/WordTheme"/>
     </application>
 
 </manifest>

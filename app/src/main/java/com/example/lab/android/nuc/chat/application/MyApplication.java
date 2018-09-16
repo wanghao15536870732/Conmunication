@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.multidex.MultiDexApplication;
 
 
-import com.example.lab.android.nuc.chat.chatUI.bean.DaoMaster;
-import com.example.lab.android.nuc.chat.chatUI.bean.DaoSession;
+import com.example.lab.android.nuc.chat.communication.bean.DaoMaster;
+import com.example.lab.android.nuc.chat.communication.bean.DaoSession;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -32,7 +32,6 @@ public class MyApplication extends MultiDexApplication{
         super.onCreate();
 
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5ad97691");
-
         DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(this, "chat-message", null);
         SQLiteDatabase db = mHelper.getWritableDatabase();
         daoSession = new DaoMaster(db).newSession();
