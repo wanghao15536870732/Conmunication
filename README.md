@@ -1,9 +1,15 @@
-# Conmunication
-一路语伴  的社群聊天部分
+# 项目背景
+> &emsp;“一带一路”建设是在我国构建全方位开放新格局，深度融入世界经济体系背景下提出的重大倡议，旨在促进经济要素有序自由流动、资源高效配置和市场深度融合，推动沿线各国实现经济政策协调，开展更大范围、更高水平、更深层次的区域合作，共同打造开放、包容、均衡、普惠的区域经济合作架构，维护全球自由贸易体系和开放型世界经济。<br>[查看出处](http://history.mofcom.gov.cn/?newchina=%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E5%80%A1%E8%AE%AE%E7%9A%84%E6%8F%90%E5%87%BA)
+
+2016年7月教育部发布文件[教育部关于印发《推进共建“一带一路”教育行动》的通知
+](http://www.moe.gov.cn/srcsite/A20/s7068/201608/t20160811_274679.html)
+
+## [一路语伴](https://github.com/wmpscc/YiLuYuBan)的社群聊天部分
+
+## 界面演示
 
 <div align="center">
-  
-## 界面演示
+
 |聊天消息|联系人|问题动态|
 |:--:|:--:|:--:|
 |![Screenshot_20180916-213740.png](https://upload-images.jianshu.io/upload_images/9140378-55c2736e4d157c31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)|![Screenshot_20180916-214621.png](https://upload-images.jianshu.io/upload_images/9140378-37e10b708e38a444.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)|![Screenshot_20180916-213931.png](https://upload-images.jianshu.io/upload_images/9140378-99c44a59beae4ba8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)|
