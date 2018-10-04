@@ -31,7 +31,7 @@ public class MyApplication extends MultiDexApplication{
     public void onCreate() {
         super.onCreate();
 
-        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5ad97691");
+        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=5bb37e54");
         DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(this, "chat-message", null);
         SQLiteDatabase db = mHelper.getWritableDatabase();
         daoSession = new DaoMaster(db).newSession();
